@@ -1,25 +1,33 @@
 #include "LinkedList.h"
 #include <iostream>
 
-void testInsertion() {
+void testInsertion()
+{
     LinkedList<int> list;
     list.insert(5);
     list.insert(105);
-    
+
     int testNum = 1;
 
-    try{
-        if(list.search(5)){
+    try
+    {
+        if (list.search(5))
+        {
             std::cout << "TEST[" << testNum << "]...PASSED" << std::endl;
-        }else{
+        }
+        else
+        {
             throw testNum;
         }
-    }catch(int testNum){
+    }
+    catch (int testNum)
+    {
         std::cout << "TEST[" << testNum << "]...FAILED" << std::endl;
     }
 }
 
-void testRemoval() {
+void testRemoval()
+{
     LinkedList<int> list;
     list.insert(5);
     list.insert(10);
@@ -28,18 +36,25 @@ void testRemoval() {
 
     int testNum = 2;
 
-    try{
-        if(!list.search(10)){
+    try
+    {
+        if (!list.search(10))
+        {
             std::cout << "TEST[" << testNum << "]...PASSED" << std::endl;
-        }else{
+        }
+        else
+        {
             throw testNum;
         }
-    }catch(int testNum){
+    }
+    catch (int testNum)
+    {
         std::cout << "TEST[" << testNum << "]...FAILED" << std::endl;
     }
 }
 
-void testSearch() {
+void testSearch()
+{
     LinkedList<int> list;
     list.insert(5);
     list.insert(10);
@@ -47,18 +62,25 @@ void testSearch() {
 
     int testNum = 3;
 
-    try{
-        if(list.search(5) && list.search(10) && list.search(15)){
+    try
+    {
+        if (list.search(5) && list.search(10) && list.search(15))
+        {
             std::cout << "TEST[" << testNum << "]...PASSED" << std::endl;
-        }else{
+        }
+        else
+        {
             throw testNum;
         }
-    }catch(int testNum){
+    }
+    catch (int testNum)
+    {
         std::cout << "TEST[" << testNum << "]...FAILED" << std::endl;
     }
 }
 
-void testDisplay(){
+void testDisplay()
+{
     std::cout << "TESTDISPLAY:" << std::endl;
     LinkedList<int> list;
     list.insert(1);
@@ -70,7 +92,8 @@ void testDisplay(){
     list.display();
 }
 
-void testDisplay2(){
+void testDisplay2()
+{
     std::cout << "TESTDISPLAY2:" << std::endl;
     LinkedList<int> list;
     list.insert(3);
@@ -84,10 +107,10 @@ void testDisplay2(){
     list.display();
     list.remove(5);
     list.display();
-
 }
 
-void testDisplay3(){
+void testDisplay3()
+{
     std::cout << "TESTDISPLAY3:" << std::endl;
     LinkedList<int> list;
     list.insert(1);
@@ -101,65 +124,90 @@ void testDisplay3(){
     list.remove(1);
     list.insert(1);
     list.display();
-
 }
 
-void testIsEmpty() {
+// Tests that a newly created LinkedList reports as empty
+void testIsEmpty()
+{
     LinkedList<int> list;
-    
+
     int testNum = 4;
-    
-    try{
-        if(list.isEmpty()){
+
+    try
+    {
+        if (list.isEmpty())
+        {
             std::cout << "TEST[" << testNum << "]...PASSED" << std::endl;
-        }else{
+        }
+        else
+        {
             throw testNum;
         }
-    }catch(int testNum){
+    }
+    catch (int testNum)
+    {
         std::cout << "TEST[" << testNum << "]...FAILED" << std::endl;
     }
 }
 
-void testMultipleRemovals() {
+// Tests that remove() only removes the FIRST occurrence of a duplicate value
+void testMultipleRemovals()
+{
     LinkedList<int> list;
     list.insert(5);
     list.insert(5);
     list.insert(10);
     list.insert(5);
     list.remove(5);
-    
+
     int testNum = 5;
-    
-    try{
-        if(list.search(5) && list.search(10)){
+
+    try
+    {
+        if (list.search(5) && list.search(10))
+        {
             std::cout << "TEST[" << testNum << "]...PASSED" << std::endl;
-        }else{
+        }
+        else
+        {
             throw testNum;
         }
-    }catch(int testNum){
+    }
+    catch (int testNum)
+    {
         std::cout << "TEST[" << testNum << "]...FAILED" << std::endl;
     }
 }
 
-void testEmptyListOperations() {
+// Tests that remove() and search() operations on an empty list don't cause errors
+// and that isEmpty() correctly reports the empty state
+void testEmptyListOperations()
+{
     LinkedList<int> list;
     list.remove(5);
     bool searchResult = list.search(5);
-    
+
     int testNum = 6;
-    
-    try{
-        if(!searchResult && list.isEmpty()){
+
+    try
+    {
+        if (!searchResult && list.isEmpty())
+        {
             std::cout << "TEST[" << testNum << "]...PASSED" << std::endl;
-        }else{
+        }
+        else
+        {
             throw testNum;
         }
-    }catch(int testNum){
+    }
+    catch (int testNum)
+    {
         std::cout << "TEST[" << testNum << "]...FAILED" << std::endl;
     }
 }
 
-int main() {
+int main()
+{
     testInsertion();
     testRemoval();
     testSearch();
@@ -167,8 +215,8 @@ int main() {
     testDisplay2();
     testDisplay3();
 
-    //you add three more tests, modeled after try-catch
-    //used above. Model your tests 4, 5, and 6 after those.
+    // you add three more tests, modeled after try-catch
+    // used above. Model your tests 4, 5, and 6 after those.
 
     testIsEmpty();
     testMultipleRemovals();
